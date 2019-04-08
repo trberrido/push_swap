@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2018/12/17 14:14:11 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/08 19:37:38 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,29 +75,31 @@ FILES_C = get_next_line.c \
 		  ft_strtrim.c \
 		  ft_tolower.c \
 		  ft_toupper.c
-# FILES_O = $(addprefix obj/, $(patsubst %.c, %.o, $(FILES_C)))
-FILES_O = $(patsubst %.c, %.o, $(FILES_C))
+DIR_O = obj/
+FILES_O = $(addprefix $(DIR_O), $(patsubst %.c, %.o, $(FILES_C)))
 INC = $(addprefix includes/, get_next_line.h libft.h)
 FLAGS = -Wall -Wextra -Werror
 
 .PHONY : clean fclean re all
-.SILENT : clean fclean re all $(NAME)
-
-$(NAME) : $(FILES_C) $(INC)
-	echo "LIBFT compiling..."
-	gcc -I./includes $(FLAGS) -c $(FILES_C)
-	ar rc $(NAME) $(FILES_O)
-	ranlib $(NAME)
-	echo "LIBFT compilation over."
+.SILENT : clean fclean re all $(NAME) 
 
 all : $(NAME)
 
+$(NAME) : $(FILES_O)
+	$(info > LIBFT compiling...)
+	ar rc $(NAME) $(FILES_O)
+	ranlib $(NAME)
+	$(info > LIBFT compilatio over)
+
+$(DIR_O)%.o : %.c $(INC)
+	@gcc -I ./includes $(FLAGS) -c -o $@ $<
+
 clean : 
 	rm -f $(FILES_O)
-	$(info -- *.o removed)
+	$(info > *.o removed)
 
 fclean : clean
 	rm -f $(NAME)
-	$(info -- libft.a removed)
+	$(info > libft.a removed)
 
 re : fclean all

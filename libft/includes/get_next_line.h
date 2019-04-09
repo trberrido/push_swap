@@ -6,14 +6,14 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 09:56:51 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/08 19:33:12 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/08 20:28:47 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include "libft.h"
+# include <libft.h>
 
 # define BUFF_SIZE 10
 

@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstpop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/09 14:43:54 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/12 17:19:40 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/12 16:04:08 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/12 16:35:03 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <libft.h>
 
-# include <libft.h>
-
-typedef struct	s_plate
+void	ft_lstpop(t_list **alst, t_list *new)
 {
-	int		value;
-}				t_plate;
+	t_list	*cursor;
 
-int				ft_argscheck(int ac, char **av);
-t_list			*ft_stackfill(int ac, char **av, t_list *stack_a);
-
-int				ft_goto_nextnb(char *str);
-
-#endif
+	cursor = *alst;
+	if (cursor)
+	{
+		while (cursor->next)
+			cursor = cursor->next;
+		cursor->next = new;
+	}
+	else
+		*alst = new;
+}

@@ -6,11 +6,25 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 17:18:45 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/12 15:50:56 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/12 17:21:58 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+int				ft_goto_nextnb(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] && ft_isspace(str[i]))
+		i += 1;
+	if (str[i] == '-')
+		i += 1;
+	while (str[i] && ft_isdigit(str[i]))
+		i += 1;
+	return (i);
+}
 
 static int		ft_argsdigit(int ac, char **av)
 {
@@ -47,11 +61,10 @@ static int		ft_argsint(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			value = ft_atol(av[i] + j);
+			value = ft_atol(&av[i][j]);
 			if (value > FT_INTMAX || value < FT_INTMIN)
 				return (0);
-			while (av[i][j] && (ft_isdigit(av[i][j]) || av[i][j] == '-'))
-				j += 1;
+			j += ft_goto_nextnb(&av[i][j]);
 		}
 		i += 1;
 	}
@@ -62,12 +75,9 @@ int				ft_argscheck(int ac, char **av)
 {
 	if (ac < 2)
 		return (0);
-	ft_putendl(">");
 	if (!ft_argsdigit(ac, av))
 		return (0);
-	ft_putendl(">");
 	if (!ft_argsint(ac, av))
 		return (0);
-	ft_putendl(">");
 	return (1);
 }

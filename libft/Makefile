@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/12 14:27:12 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/12 16:10:54 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ FILES_C = get_next_line.c \
 		  ft_isprint.c \
 		  ft_itoa.c \
 		  ft_lstadd.c \
+		  ft_lstpop.c \
+		  ft_lstpush.c \
 		  ft_lstdel.c \
 		  ft_lstdelone.c \
 		  ft_lstiter.c \

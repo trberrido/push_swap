@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/09 19:19:41 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/12 14:27:12 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,14 @@ FILES_C = get_next_line.c \
 		  ft_power.c \
 		  ft_sqrt.c \
 		  ft_atoi.c \
+		  ft_atol.c \
 		  ft_bzero.c \
 		  ft_isalnum.c \
+		  ft_ischarset.c \
 		  ft_isalpha.c \
 		  ft_isascii.c \
 		  ft_isdigit.c \
+		  ft_isspace.c \
 		  ft_isprint.c \
 		  ft_itoa.c \
 		  ft_lstadd.c \
@@ -36,6 +39,7 @@ FILES_C = get_next_line.c \
 		  ft_memcmp.c \
 		  ft_memcpy.c \
 		  ft_memdel.c \
+		  ft_memerase.c \
 		  ft_memmove.c \
 		  ft_memrealloc.c \
 		  ft_memset.c \

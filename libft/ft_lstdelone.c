@@ -6,11 +6,11 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/18 17:34:08 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/18 19:39:30 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/12 12:29:41 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_ischarset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 19:09:45 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/16 19:10:12 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/12 13:42:28 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/12 13:44:23 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+int		ft_ischarset(int c, char *charset)
 {
-	if (ft_strncmp(s1, s2, n))
-		return (0);
-	return (1);
+	while (*charset)
+	{
+		if (c == *charset)
+			return (1);
+		charset += 1;
+	}
+	return (0);
 }

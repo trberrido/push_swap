@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 19:09:45 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/16 19:10:12 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/09 14:43:54 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/12 14:36:54 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+# include <libft.h>
+
+typedef struct	s_plate
 {
-	if (ft_strncmp(s1, s2, n))
-		return (0);
-	return (1);
-}
+	int		value;
+}				t_plate;
+
+int				ft_argscheck(int ac, char **av);
+t_list			*ft_stackfill(int ac, char **av, t_list *stack_a);
+
+#endif

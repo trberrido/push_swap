@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
 static void	ft_setinfos(int n, int *decimal, size_t *size, int *sign)
 {

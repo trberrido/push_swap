@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 19:09:45 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/16 19:10:12 by thberrid         ###   ########.fr       */
+/*   Created: 2018/11/13 16:46:31 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/11 15:32:28 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+long		ft_atol(const char *str)
 {
-	if (ft_strncmp(s1, s2, n))
-		return (0);
-	return (1);
+	int		i;
+	int		sign;
+	long	nb;
+
+	sign = 1;
+	i = 0;
+	nb = 0;
+	while (*str && ft_isspace(*str))
+		str += 1;
+	if (*str == '-')
+		sign = -1;
+	if (*str == '+' || *str == '-')
+		str += 1;
+	while (*str && ft_isdigit(*str))
+	{
+		nb *= 10;
+		nb += *(str + i) - '0';
+		str += 1;
+	}
+	return (nb * sign);
 }

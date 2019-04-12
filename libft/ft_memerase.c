@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   ft_memerase.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 19:09:45 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/16 19:10:12 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/12 14:23:00 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/12 14:25:15 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+void		ft_memerase(void *ap, size_t size)
 {
-	if (ft_strncmp(s1, s2, n))
-		return (0);
-	return (1);
+	ft_bzero(ap, size);
+	ft_memdel(&ap);
 }

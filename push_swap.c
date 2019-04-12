@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 19:09:45 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/16 19:10:12 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/08 20:28:10 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/12 14:48:15 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <push_swap.h>
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+int		main(void)
 {
-	if (ft_strncmp(s1, s2, n))
-		return (0);
-	return (1);
+	ft_putendl("PUSH SWAP\n");
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:57:04 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/09 18:57:47 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/12 14:26:12 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <get_next_line.h>
+
+# define FT_INTMAX 2147483647
+# define FT_INTMIN -2147483648
 
 typedef struct	s_list
 {
@@ -37,6 +40,7 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memalloc(size_t size);
 void			*ft_memrealloc(void *ptr, size_t size);
+void			ft_memerase(void *ap, size_t size);
 void			ft_memdel(void **ap);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
@@ -52,10 +56,13 @@ char			*ft_strnstr(const char *hstck, const char *ndl, size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *str);
+long			ft_atol(const char *str);
 int				ft_isalpha(int c);
+int				ft_ischarset(int c, char *charset);
 int				ft_isdigit(int c);
 int				ft_isalnum(int c);
 int				ft_isascii(int c);
+int				ft_isspace(int c);
 int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);

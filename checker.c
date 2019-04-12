@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnequ.c                                       :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/16 19:09:45 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/16 19:10:12 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/08 20:36:26 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/12 15:30:07 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <push_swap.h>
 
-int		ft_strnequ(char const *s1, char const *s2, size_t n)
+int		main(int ac, char **av)
 {
-	if (ft_strncmp(s1, s2, n))
-		return (0);
-	return (1);
+	t_list	*stack_a;
+	t_list	*stack_op;
+
+	stack_a = NULL;
+	stack_op = NULL;	
+	if (!ft_argscheck(ac, av))
+		ft_putendl("Error");
+/*	else if (!ft_stackfill(ac, av, stack_a))
+		ft_putendl("Error");
+	else if (!ft_opget(stack_op, stack_a))
+		ft_putendl("Error");
+	else if (ft_opprocess(stack_a, stack_op))
+		ft_putendl("OK");
+*/	else
+		ft_putendl("KO");
+	return (0);
 }

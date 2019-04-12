@@ -6,14 +6,15 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/09 19:20:04 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/12 15:30:21 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SHELL = /bin/sh
 NAME = push_check
 DIR_O = obj/
-COMMON_C = common.c
+COMMON_C = ft_argscheck.c \
+		   ft_stackfill.c
 PUSH_SWAP_C = push_swap.c \
 			  $(COMMON_C)
 CHECKER_C = checker.c \
@@ -31,11 +32,11 @@ all : $(NAME)
 $(NAME) : push_swap checker
 
 push_swap : $(PUSH_SWAP_O)
-	gcc -I . $(FLAGS) $(PUSH_SWAP_O) -L libft/ -lft -o push_swap
+	gcc -I . $(FLAGS) $(PUSH_SWAP_O) -L ./libft/ -lft -o push_swap
 	$(info PUSH_SWAP exec compiled)
 
 checker : $(CHECKER_O)
-	gcc -I . $(FLAGS) $(CHECKER_O) -L libft/ -lft -o checker
+	gcc -I . $(FLAGS) $(CHECKER_O) -L ./libft/ -lft -o checker
 	$(info CHECKER exec compiled)
 
 $(DIR_O)%.o : %.c $(FILES_H) libft/libft.a

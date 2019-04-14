@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:57:04 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/12 16:10:25 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/14 14:29:16 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 # define FT_INTMAX 2147483647
 # define FT_INTMIN -2147483648
+# define FT_BYTSIZE 8
 
 typedef struct	s_list
 {
@@ -28,6 +29,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+void					print_memory(const void *addr, size_t size);
 int				ft_factorial(int nb);
 int				ft_power(int nb, int power);
 int				ft_sqrt(int nb);
@@ -41,6 +43,7 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memalloc(size_t size);
 void			*ft_memrealloc(void *ptr, size_t size);
 void			ft_memerase(void *ap, size_t size);
+int				ft_memswap(void *addr_a, void *addr_b, size_t size);
 void			ft_memdel(void **ap);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);

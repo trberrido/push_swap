@@ -6,13 +6,15 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/12 16:10:54 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/14 17:22:53 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SHELL = /bin/sh
 NAME = libft.a
 FILES_C = get_next_line.c \
+		  print_memory.c \
+		  ft_addrswap.c \
 		  ft_factorial.c \
 		  ft_power.c \
 		  ft_sqrt.c \
@@ -28,8 +30,10 @@ FILES_C = get_next_line.c \
 		  ft_isprint.c \
 		  ft_itoa.c \
 		  ft_lstadd.c \
-		  ft_lstpop.c \
+		  ft_lstgetlast.c \
+		  ft_lstappend.c \
 		  ft_lstpush.c \
+		  ft_lstpop.c \
 		  ft_lstdel.c \
 		  ft_lstdelone.c \
 		  ft_lstiter.c \
@@ -45,6 +49,7 @@ FILES_C = get_next_line.c \
 		  ft_memmove.c \
 		  ft_memrealloc.c \
 		  ft_memset.c \
+		  ft_memswap.c \
 		  ft_putchar.c \
 		  ft_putchar_fd.c \
 		  ft_putendl.c \
@@ -98,6 +103,7 @@ $(NAME) : $(FILES_O)
 	$(info  LIBFT compilation over)
 
 $(DIR_O)%.o : %.c $(FILES_H)
+	$(info LIBFT $<)
 	gcc -I ./$(DIR_H) $(FLAGS) -c -o $@ $<
 
 clean : 

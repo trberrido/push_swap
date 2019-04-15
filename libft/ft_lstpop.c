@@ -6,23 +6,21 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 16:04:08 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/12 16:35:03 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/14 17:20:14 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-void	ft_lstpop(t_list **alst, t_list *new)
+t_list		*ft_lstpop(t_list **alst)
 {
-	t_list	*cursor;
-
-	cursor = *alst;
-	if (cursor)
+	t_list		*popped;
+	if (*alst)
 	{
-		while (cursor->next)
-			cursor = cursor->next;
-		cursor->next = new;
+		popped = *alst;
+		*alst = popped->next;
+		popped->next = NULL;
+		return (popped);
 	}
-	else
-		*alst = new;
+	return (NULL);
 }

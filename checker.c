@@ -6,28 +6,58 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:36:26 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/12 17:24:13 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/15 19:33:17 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		main(int ac, char **av)
+static void		ft_stacksdel(t_list **stack_a, t_list **stack_b)
+{
+	if (*stack_a)
+		ft_lstdel(stack_a, &ft_bzero);
+	if (*stack_b)
+		ft_lstdel(stack_b, &ft_bzero);
+}
+
+static int		ft_checkfinal(t_list *stack_a, t_list *stack_b)
+{
+	int		prev;
+	int		curr;
+
+	if (!stack_b)
+	{
+		prev = ((t_plate *)stack_a->content)->value;
+		while (stack_a)
+		{
+			curr = ((t_plate *)stack_a->content)->value;
+			if (curr < prev)
+				return (0);
+			curr = prev;
+			stack_a = stack_a->next;
+		}
+		return (1);
+	}
+	return (0);
+}
+
+int				main(int ac, char **av)
 {
 	t_list	*stack_a;
-	t_list	*stack_op;
+	t_list	*stack_b;
 
 	stack_a = NULL;
-	stack_op = NULL;	
+	stack_b = NULL;
 	if (!ft_argscheck(ac, av))
 		ft_putendl("Error");
-	else if (!ft_stackfill(ac, av, stack_a))
+	else if (!ft_stackfill(ac, av, &stack_a))
 		ft_putendl("Error");
-	else if (!ft_opget(stack_op, stack_a))
+	else if (!ft_optry(&stack_a, &stack_b))
 		ft_putendl("Error");
-/*	else if (ft_opprocess(stack_a, stack_op))
-		ft_putendl("OK");
-*/	else
+	else if (!ft_checkfinal(stack_a, stack_b))
 		ft_putendl("KO");
+	else
+		ft_putendl("OK");
+	ft_stacksdel(&stack_a, &stack_b);
 	return (0);
 }

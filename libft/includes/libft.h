@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:57:04 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/14 14:29:16 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/14 17:21:47 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-void					print_memory(const void *addr, size_t size);
+void			print_memory(const void *addr, size_t size);
+void			ft_addrswap(void **addra, void **addrb);
 int				ft_factorial(int nb);
 int				ft_power(int nb, int power);
 int				ft_sqrt(int nb);
@@ -92,11 +93,14 @@ void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 t_list			*ft_lstnew(void const *content, size_t content_size);
+t_list			*ft_lstgetlast(t_list *list);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstpush(t_list **alst, t_list *new);
-void			ft_lstpop(t_list **alst, t_list *new);
+t_list			*ft_lstpop(t_list **alst);
+void			ft_lstappend(t_list **alst, t_list *new);
+t_list			*ft_lstgetlast(t_list *list);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 

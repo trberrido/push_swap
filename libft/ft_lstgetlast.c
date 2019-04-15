@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memswap.c                                       :+:      :+:    :+:   */
+/*   ft_lstgetlast.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/14 14:07:58 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/14 16:28:01 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/14 15:57:33 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/14 16:00:15 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int			ft_memswap(void *addr_a, void *addr_b, size_t size)
+t_list	*ft_lstgetlast(t_list *list)
 {
-	void	*tmp;
-
-	if ((tmp = ft_memalloc(sizeof(char) * size)))
+	if (list)
 	{
-		ft_memcpy(tmp, addr_a, size);
-		ft_memcpy(addr_a, addr_b, size);
-		ft_memcpy(addr_b, tmp, size);
-		ft_memdel(&tmp);
-		return (1);
+		while (list->next)
+			list = list->next;
 	}
-	return (0);
+	return (list);
 }

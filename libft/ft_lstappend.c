@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memswap.c                                       :+:      :+:    :+:   */
+/*   ft_lstappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/14 14:07:58 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/14 16:28:01 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/12 16:04:08 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/14 16:05:06 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int			ft_memswap(void *addr_a, void *addr_b, size_t size)
+void	ft_lstappend(t_list **alst, t_list *new)
 {
-	void	*tmp;
+	t_list	*cursor;
 
-	if ((tmp = ft_memalloc(sizeof(char) * size)))
+	if (*alst)
 	{
-		ft_memcpy(tmp, addr_a, size);
-		ft_memcpy(addr_a, addr_b, size);
-		ft_memcpy(addr_b, tmp, size);
-		ft_memdel(&tmp);
-		return (1);
+		cursor = ft_lstgetlast(*alst);
+		cursor->next = new;
 	}
-	return (0);
+	else
+		*alst = new;
 }

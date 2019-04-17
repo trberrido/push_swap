@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_opwrite.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 13:50:52 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/16 18:10:14 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/16 18:11:20 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/17 19:17:35 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_bzero(void *s, size_t n)
+void			ft_opwrite(t_list *stack_ops)
 {
-	ft_memset(s, 0, n);
+	ft_putendl(((t_plate *)stack_ops->data)->name);
 }

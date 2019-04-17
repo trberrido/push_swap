@@ -6,19 +6,11 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:36:26 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/15 19:33:17 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:37:56 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-
-static void		ft_stacksdel(t_list **stack_a, t_list **stack_b)
-{
-	if (*stack_a)
-		ft_lstdel(stack_a, &ft_bzero);
-	if (*stack_b)
-		ft_lstdel(stack_b, &ft_bzero);
-}
 
 static int		ft_checkfinal(t_list *stack_a, t_list *stack_b)
 {
@@ -49,15 +41,15 @@ int				main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (!ft_argscheck(ac, av))
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 	else if (!ft_stackfill(ac, av, &stack_a))
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 	else if (!ft_optry(&stack_a, &stack_b))
-		ft_putendl("Error");
+		ft_putendl_fd("Error", 2);
 	else if (!ft_checkfinal(stack_a, stack_b))
 		ft_putendl("KO");
 	else
 		ft_putendl("OK");
-	ft_stacksdel(&stack_a, &stack_b);
+	ft_stacksdel(&stack_a, &stack_b, NULL);
 	return (0);
 }

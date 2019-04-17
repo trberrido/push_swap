@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 13:50:52 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/16 18:10:14 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/17 14:20:34 by thberrid          #+#    #+#             */
+/*   Updated: 2019/04/17 19:11:02 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_bzero(void *s, size_t n)
+int		ft_lstlen(t_list *list)
 {
-	ft_memset(s, 0, n);
+	int		i;
+
+	i = 0;
+	while (list)
+	{
+		list = list->next;
+		i += 1;
+	}
+	return (i);
 }

@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/15 18:37:06 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/17 19:28:16 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ COMMON_C = ft_argscheck.c \
 		   ft_stackfill.c \
 		   ft_ops.c \
 		   ft_opget.c
-PUSH_SWAP_C = push_swap.c
+PUSH_SWAP_C = push_swap.c \
+			  ft_opwrite.c \
+			  ft_stacksort.c
 CHECKER_C = checker.c
 PUSH_SWAP_O = $(addprefix $(DIR_O), $(patsubst %.c, %.o, $(PUSH_SWAP_C)))
 CHECKER_O = $(addprefix $(DIR_O), $(patsubst %.c, %.o, $(CHECKER_C)))

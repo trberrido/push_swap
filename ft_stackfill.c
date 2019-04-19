@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fillstack.c                                     :+:      :+:    :+:   */
+/*   ft_stackfill.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 14:55:28 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/16 18:09:38 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/19 18:12:18 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void		ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **stack_op)
+void			ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **ops)
 {
-	if (*stack_a)
+	if (stack_a && *stack_a)
 		ft_lstdel(stack_a, &ft_bzero);
-	if (*stack_b)
+	if (stack_b && *stack_b)
 		ft_lstdel(stack_b, &ft_bzero);
-	if (*stack_op)
-		ft_lstdel(stack_op, &ft_bzero);
+	if (ops && *ops)
+		ft_lstdel(ops, &ft_bzero);
 }
 
-static int	ft_checktwins(t_list *stack, int value)
+static int		ft_checktwins(t_list *stack, int value)
 {
 	t_list	*current;
 	t_plate *plate;
@@ -40,7 +40,7 @@ static int	ft_checktwins(t_list *stack, int value)
 	return (1);
 }
 
-void		ft_stackprint(t_list *stack, char name)
+void			ft_stackprint(t_list *stack, char name)
 {
 	ft_putchar(name);
 	ft_putendl(":");
@@ -55,7 +55,13 @@ void		ft_stackprint(t_list *stack, char name)
 	ft_putendl("");
 }
 
-int			ft_stackfill(int ac, char **av, t_list **stack)
+static t_list	*ft_addplate(t_list **stack, t_plate *newplate)
+{
+	ft_lstappend(stack, ft_lstnew(newplate, sizeof(t_plate)));
+	return (ft_lstgetlast(*stack));
+}
+
+t_list			*ft_stackfill(int ac, char **av, t_list **stack)
 {
 	int		i;
 	int		j;
@@ -68,15 +74,16 @@ int			ft_stackfill(int ac, char **av, t_list **stack)
 		while (av[i][j])
 		{
 			newplate.value = ft_atoi(&av[i][j]);
-			ft_lstappend(stack, ft_lstnew(&newplate, sizeof(t_plate)));
+			if (!ft_addplate(stack, &newplate))
+				return (NULL);
 			if (!ft_checktwins(*stack, newplate.value))
 			{
 				ft_lstdel(stack, &ft_memerase);
-				return (0);
+				return (NULL);
 			}
 			j += ft_goto_nextnb(&av[i][j]);
 		}
 		i += 1;
 	}
-	return (1);
+	return (*stack);
 }

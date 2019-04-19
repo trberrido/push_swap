@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 17:18:45 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/15 16:44:29 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/19 14:45:40 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static int		ft_argsint(int ac, char **av)
 int				ft_argscheck(int ac, char **av)
 {
 	if (ac < 2)
-		return (0);
+		return (1);
 	if (!ft_argsdigit(ac, av))
 		return (0);
 	if (!ft_argsint(ac, av))

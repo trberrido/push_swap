@@ -6,13 +6,13 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:28:10 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/17 19:16:29 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/19 18:34:33 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		main(void)
+int		main(int ac, char **av)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
@@ -21,12 +21,16 @@ int		main(void)
 	stack_a = NULL;
 	stack_b = NULL;
 	stack_ops = NULL;
+	if (ac < 2)
+		return (0);
 	if (!ft_argscheck(ac, av))
 		ft_putendl_fd("Error", 2);
 	else if (!ft_stackfill(ac, av, &stack_a))
 		ft_putendl_fd("Error", 2);
+	else if (!ft_stacksort(&stack_a, &stack_b, &stack_ops))
+		ft_putendl_fd("Error", 2);
 	else
-		ft_lstiter(ft_stacksort(&stack_a, &stack_b, &stack_ops), ft_opwrite);
+		ft_lstiter(stack_ops, ft_opwrite);
 	ft_stacksdel(&stack_a, &stack_b, &stack_ops);
 	return (0);
 }

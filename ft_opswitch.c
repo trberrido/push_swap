@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_opget.c                                         :+:      :+:    :+:   */
+/*   ft_opswitch.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 17:27:25 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/16 14:45:13 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/19 19:40:08 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int	ft_getop(char *new_op, t_list **stack_a, t_list **stack_b)
+t_op		*ft_opget(char *new_op)
 {
 	int				i;
 	static t_op		ops[11] = {
@@ -33,30 +33,48 @@ static int	ft_getop(char *new_op, t_list **stack_a, t_list **stack_b)
 	while (i < 11)
 	{
 		if (!ft_strcmp(new_op, ops[i].name))
-		{
-			ft_opapply(&ops[i], stack_a, stack_b);
-			break ;
-		}
+			return (&ops[i]);
 		i += 1;
 	}
-	return ((i < 11));
+	return (NULL);
+}
+
+void		ft_opapply(t_op *op, t_list **stack_a, t_list **stack_b)
+{
+	if (op->option >> 2 & 1)
+	{
+		if (op->option & 1)
+			ft_push(stack_b, stack_a);
+		else
+			ft_push(stack_a, stack_b);
+	}
+	else
+	{
+		if (op->option & 1)
+			op->fn(stack_a);
+		if (op->option >> 1 & 1)
+			op->fn(stack_b);
+	}
 }
 
 int			ft_optry(t_list **stack_a, t_list **stack_b)
 {
 	int				ret;
 	char			*new_op;
+	t_op			*op;
 
 	new_op = NULL;
 	while ((ret = get_next_line(0, &new_op)))
 	{
-		if (!ft_getop(new_op, stack_a, stack_b) || ret == -1)
+		if (!(op = ft_opget(new_op)) || ret == -1)
 		{
 			ft_strdel(&new_op);
 			return (0);
 		}
+		ft_opapply(op, stack_a, stack_b);
 		ft_stackprint(*stack_a, 'A');
 		ft_stackprint(*stack_b, 'B');
+		ft_strdel(&new_op);
 	}
 	ft_strdel(&new_op);
 	return (1);

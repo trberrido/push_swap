@@ -6,11 +6,30 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:38:51 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/19 16:17:05 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/23 15:00:44 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+int		ft_countbreaks(t_list *stack)
+{
+	int		prev;
+	int		curr;
+	int		breaks;
+
+	breaks = 0;
+	prev = ((t_plate *)stack->content)->value;
+	while (stack)
+	{
+		curr = ((t_plate *)stack->content)->value;
+		if (curr < prev)
+			breaks += 1;
+		curr = prev;
+		stack = stack->next;
+	}
+	return (breaks);
+}
 
 int		ft_findminimum(t_list *stack)
 {

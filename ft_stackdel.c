@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 14:31:05 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 14:35:39 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/23 14:46:01 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,3 @@ void			ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **ops)
 	if (ops && *ops)
 		ft_lstdel(ops, &ft_memerase);
 }
-

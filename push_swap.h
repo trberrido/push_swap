@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 14:40:53 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/23 15:04:22 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_list			*ft_stackfill(int ac, char **av, t_list **stack_a);
 
 void			ft_stackprint(t_list *stack, char name);
 void			ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **ops);
+int				ft_stacksort_check(t_list *stack_a, t_list *stack_b);
 
 t_list			*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops);
 
@@ -72,7 +73,9 @@ t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops);
 
 t_list			*ft_stackrewind(t_list *stack, t_list **ops);
 t_list			*ft_minimumontop(t_list **stack_a, t_list **ops);
+
 int				ft_findminimum(t_list *stack);
 int				ft_findposition(t_list *stack, int searched_value);
+int				ft_countbreaks(t_list *stack);
 
 #endif

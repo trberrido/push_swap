@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/19 19:39:44 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/23 14:33:56 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ int				ft_argscheck(int ac, char **av);
 int				ft_goto_nextnb(char *str);
 
 t_list			*ft_stackfill(int ac, char **av, t_list **stack_a);
+
+void			ft_stackprint(t_list *stack, char name);
+void			ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **ops);
 
 void			ft_stackprint(t_list *stack, char name);
 void			ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **ops);

@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/19 17:22:01 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/23 14:34:20 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = push_check
 DIR_O = obj/
 COMMON_C = ft_argscheck.c \
 		   ft_stackfill.c \
+		   ft_stackdel.c \
+		   ft_stackprint.c \
 		   ft_opfunctions.c \
 		   ft_opswitch.c
 PUSH_SWAP_C = push_swap.c \

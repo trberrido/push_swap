@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 15:04:22 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/24 15:30:16 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,15 @@ t_list			*ft_stackfill(int ac, char **av, t_list **stack_a);
 
 void			ft_stackprint(t_list *stack, char name);
 void			ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **ops);
+
+void			ft_stacksort_post(t_list **ops);
+
 int				ft_stacksort_check(t_list *stack_a, t_list *stack_b);
 
 t_list			*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops);
 
 void			ft_opwrite(t_list *ops);
+
 t_list			*ft_opadd(t_list **ops, char *name);
 
 t_op			*ft_opget(char *new_op);

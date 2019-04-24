@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:38:51 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 15:00:44 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/24 16:19:12 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_countbreaks(t_list *stack)
 		curr = ((t_plate *)stack->content)->value;
 		if (curr < prev)
 			breaks += 1;
-		curr = prev;
+		prev = curr;
 		stack = stack->next;
 	}
 	return (breaks);

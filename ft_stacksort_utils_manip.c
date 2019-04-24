@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:36:21 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 23:04:24 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/24 20:05:48 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ t_list			*ft_minimumontop(t_list **stack, t_list **ops)
 	minimum_position = ft_findposition(*stack, stack_minimum);
 	if (minimum_position > 0)
 	{
-		if (minimum_position < stack_len / 2)
+		if (minimum_position <= stack_len / 2)
 			ft_rorrr(stack, ops, "ra", stack_minimum);
 		else
 			ft_rorrr(stack, ops, "rra", stack_minimum);

@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 14:55:28 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 14:43:26 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/24 14:11:03 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,13 @@ static int		ft_checktwins(t_list *stack, int value)
 
 static t_list	*ft_addplate(t_list **stack, t_plate *newplate)
 {
-	ft_lstappend(stack, ft_lstnew(newplate, sizeof(t_plate)));
-	return (ft_lstgetlast(*stack));
+	t_list		*newlist;
+
+	newlist = ft_lstnew(newplate, sizeof(t_plate));
+	if (!newlist)
+		return (NULL);
+	ft_lstappend(stack, newlist);
+	return (newlist);
 }
 
 t_list			*ft_stackfill(int ac, char **av, t_list **stack)

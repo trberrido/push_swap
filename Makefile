@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/24 14:19:56 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/24 15:31:11 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ PUSH_SWAP_C = push_swap.c \
 			  ft_stacksort.c \
 			  ft_stacksort_selection.c \
 			  ft_stacksort_bubble.c \
+			  ft_stacksort_post.c \
 			  ft_stacksort_utils_manip.c
 CHECKER_C = checker.c
 PUSH_SWAP_O = $(addprefix $(DIR_O), $(patsubst %.c, %.o, $(PUSH_SWAP_C)))

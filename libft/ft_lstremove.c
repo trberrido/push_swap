@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 22:55:35 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 23:04:22 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/24 15:43:02 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	ft_lstremove(t_list **list, t_list *to_del, void (*del)(void *, size_t))
 		current = current->next;
 	}
 	current = current->next;
-	ft_lstdelone(&to_del, ft_memerase);
+	ft_lstdelone(&to_del, del);
 }

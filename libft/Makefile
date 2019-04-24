@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/18 16:12:31 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/24 15:41:51 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,7 @@ FILES_C = get_next_line.c \
 		  ft_lstiter.c \
 		  ft_lstmap.c \
 		  ft_lstnew.c \
+		  ft_lstremove.c \
 		  ft_memalloc.c \
 		  ft_memccpy.c \
 		  ft_memchr.c \

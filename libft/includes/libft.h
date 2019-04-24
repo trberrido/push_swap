@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 12:57:04 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/18 16:15:42 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/24 15:38:48 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ void			ft_lstappend(t_list **alst, t_list *new);
 t_list			*ft_lstgetlast(t_list *list);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void			ft_lstremove(t_list **l, t_list *t, void (*d)(void *, size_t));
 
 #endif

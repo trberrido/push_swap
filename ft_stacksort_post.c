@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 21:35:54 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/24 20:10:38 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:02:05 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,8 @@ static int		ft_remove_push(t_list **all_ops, t_list **op)
 
 static t_list	*ft_mergeops(t_list **op, char *merged_name)
 {
-	t_list	*to_removed;
-
 	ft_strncpy(((t_op *)((*op)->content))->name, merged_name, 4);
-	to_removed = (*op)->next;
-	(*op)->next = (*op)->next->next;
-	ft_lstdelone(&to_removed, &ft_memerase);
+	ft_lstremove(op, (*op)->next, &ft_memerase);
 	return ((*op)->next);
 }
 

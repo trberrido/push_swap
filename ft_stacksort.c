@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:19:05 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/24 20:06:09 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 14:10:10 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ t_list		*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops)
 	};
 
 	if (ft_countbreaks(*stack_a) == 1
-		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 0)
+		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 0
+		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 1)
 	{
 		if (!ft_minimumontop(stack_a, ops))
 			return (NULL);
-		ft_putendl("----");
-		ft_lstiter(*ops, ft_opwrite);
 	}
 	else
 	{

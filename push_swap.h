@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 15:56:08 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:20:41 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops);
 t_list			*ft_stackrewind(t_list *stack, t_list **ops);
 t_list			*ft_minimumontop(t_list **stack_a, t_list **ops);
 
+int				ft_isshifted(t_list *stack);
 int				ft_findminimum(t_list *stack);
 int				ft_findmaximum(t_list *stack);
 int				ft_findposition(t_list *stack, int searched_value);

@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 13:28:24 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 17:09:53 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:20:08 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops)
 {
 	if (!ft_needaswap(stack_a, ops))
 		return (NULL);
-	if (ft_countbreaks(*stack_a) == 1
-		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 0)
+	if (ft_isshifted(*stack_a) == 1)
 	{
 		if (!ft_minimumontop(stack_a, ops))
 			return (NULL);

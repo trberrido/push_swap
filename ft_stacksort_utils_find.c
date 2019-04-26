@@ -6,20 +6,40 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:38:51 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 15:56:53 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:20:51 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
+int		ft_isshifted(t_list *stack)
+{
+	int		first;
+	int		current;
+	int		breaks;
+
+	breaks = ft_countbreaks(stack);
+	first = ((t_plate *)stack->content)->value;
+	while (stack)
+	{
+		current = ((t_plate *)stack->content)->value;
+		stack = stack->next;
+	}
+	if (first < current)
+		breaks += 1;
+	return (breaks);
+}
+
 int		ft_countbreaks(t_list *stack)
 {
 	int		prev;
+	int		first;
 	int		curr;
 	int		breaks;
 
 	breaks = 0;
 	prev = ((t_plate *)stack->content)->value;
+	first = ((t_plate *)stack->content)->value;
 	while (stack)
 	{
 		curr = ((t_plate *)stack->content)->value;

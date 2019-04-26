@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:19:05 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 17:05:39 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:19:09 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ t_list		*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops)
 		{ft_selection, 100},
 	};
 
-	if (ft_countbreaks(*stack_a) == 1
-		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 0)
+	if (ft_isshifted(*stack_a) == 1)
 	{
 		if (!ft_minimumontop(stack_a, ops))
 			return (NULL);

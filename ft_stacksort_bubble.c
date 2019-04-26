@@ -6,16 +6,44 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 13:28:24 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/19 16:16:35 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 17:09:53 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-t_list		*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops)
+static int		ft_needaswap(t_list **stack_a, t_list **ops)
 {
-	ft_push(stack_a, stack_b);
-	if (!ft_opadd(ops, "NAN"))
+	int		current;
+	int		next;
+
+	current = ((t_plate *)(*stack_a)->content)->value;
+	next = ((t_plate *)(*stack_a)->next->content)->value;
+	if (current > next)
+	{
+		ft_swap(stack_a);
+		if (!ft_opadd(ops, "sa"))
+			return (0);
+	}
+	return (1);
+}
+
+t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops)
+{
+	if (!ft_needaswap(stack_a, ops))
 		return (NULL);
+	if (ft_countbreaks(*stack_a) == 1
+		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 0)
+	{
+		if (!ft_minimumontop(stack_a, ops))
+			return (NULL);
+	}
+	if (!ft_stacksort_check(*stack_a, *stack_b))
+	{
+		ft_rotate(stack_a);
+		if (!ft_opadd(ops, "ra"))
+			return (NULL);
+		return (ft_bubble(stack_a, stack_b, ops));
+	}
 	return (*ops);
 }

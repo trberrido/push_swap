@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:38:51 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/24 16:19:12 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:56:53 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,20 @@ int		ft_findminimum(t_list *stack)
 		stack = stack->next;
 	}
 	return (min);
+}
+
+int		ft_findmaximum(t_list *stack)
+{
+	int		max;
+
+	max = FT_INTMIN;
+	while (stack)
+	{
+		if (max > ((t_plate *)stack->content)->value)
+			max = ((t_plate *)stack->content)->value;
+		stack = stack->next;
+	}
+	return (max);
 }
 
 int		ft_findposition(t_list *stack, int searched_value)

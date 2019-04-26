@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:19:05 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 15:05:42 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/26 17:05:39 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ t_list		*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops)
 	int				i;
 	int				stack_len;
 	static t_algo	algos[2] = {
-		{ft_bubble, 5},
+		{ft_bubble, 3},
 		{ft_selection, 100},
 	};
 
 	if (ft_countbreaks(*stack_a) == 1
-		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 0
-		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 1)
+		&& ft_findposition(*stack_a, ft_findminimum(*stack_a)) != 0)
 	{
 		if (!ft_minimumontop(stack_a, ops))
 			return (NULL);

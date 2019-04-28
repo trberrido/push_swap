@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 14:32:09 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/28 15:13:40 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ t_list			*ft_selection(t_list **stack_a, t_list **stack_b, t_list **ops);
 t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops);
 t_list			*ft_quicksort(t_list **stack_a, t_list **stack_b, t_list **ops);
 
-t_list			*ft_stackrewind(t_list *stack, t_list **ops);
+t_list			*ft_pushn(t_list **s_from, t_list **s_to, t_list **ops, int n);
 t_list			*ft_minimumontop(t_list **stack_a, t_list **ops);
 
 int				ft_isshifted(t_list *stack);

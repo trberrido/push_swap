@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 20:29:30 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/28 14:32:09 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int				ft_isshifted(t_list *stack);
 int				ft_findminimum(t_list *stack);
 int				ft_findposition(t_list *stack, int searched_value);
 int				ft_countbreaks(t_list *stack);
+int				ft_getmedian(t_list *stack, int len);
 
 #endif

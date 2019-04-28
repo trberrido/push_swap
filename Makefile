@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/28 14:31:50 by thberrid         ###   ########.fr        #
+#    Updated: 2019/04/28 14:58:01 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ PUSH_SWAP_C = push_swap.c \
 			  ft_stacksort_post.c \
 			  ft_stacksort_utils_manip.c
 CHECKER_C = checker.c
-TEST_C = median_test.c \
+TEST_C = test.c \
 		 $(CHECKER_C) \
 		 $(PUSH_SWAP_C)
 TEST_C := $(filter-out push_swap.c, $(TEST_C))
@@ -48,7 +48,7 @@ FLAGS = -Wall -Wextra -Werror
 
 all : $(NAME)
 
-$(NAME) : push_swap checker test
+$(NAME) : push_swap checker
 
 push_swap : libft $(PUSH_SWAP_O) $(COMMON_O)
 	gcc -I . $(FLAGS) $(COMMON_O) $(PUSH_SWAP_O) -L ./libft/ -lft -o push_swap

@@ -6,13 +6,13 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 13:28:24 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 18:20:08 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/29 12:40:19 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int		ft_needaswap(t_list **stack_a, t_list **ops)
+t_list			*ft_needaswap(t_list **stack_a, t_list **ops)
 {
 	int		current;
 	int		next;
@@ -23,9 +23,9 @@ static int		ft_needaswap(t_list **stack_a, t_list **ops)
 	{
 		ft_swap(stack_a);
 		if (!ft_opadd(ops, "sa"))
-			return (0);
+			return (NULL);
 	}
-	return (1);
+	return (*ops);
 }
 
 t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops)

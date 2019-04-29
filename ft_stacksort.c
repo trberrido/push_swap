@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/16 18:19:05 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 14:04:51 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/29 13:11:17 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ t_list		*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops)
 	int				i;
 	int				stack_len;
 	static t_algo	algos[3] = {
-		{ft_bubble, 3},
-		{ft_selection, 100},
+		{ft_bubble, 0},
+		{ft_selection, 0},
 		{ft_quicksort, 1000},
 	};
 
@@ -31,7 +31,7 @@ t_list		*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops)
 	{
 		i = 0;
 		stack_len = ft_lstlen(*stack_a);
-		while (stack_len > algos[i].limit && i + 1 < 2)
+		while (stack_len > algos[i].limit && i + 1 < 3)
 			i += 1;
 		algos[i].fn(stack_a, stack_b, ops);
 		ft_stacksort_post(ops);

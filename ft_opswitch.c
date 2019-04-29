@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 17:27:25 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 14:32:58 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/29 13:05:11 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,28 @@ int			ft_optry(t_list **stack_a, t_list **stack_b)
 			return (0);
 		}
 		ft_opapply(op, stack_a, stack_b);
+		ft_putendl(new_op);
+		ft_stackprint(*stack_a, 'A');
+		ft_stackprint(*stack_b, 'B');
+		ft_putendl("\n\n\n");
 		ft_strdel(&new_op);
 	}
 	ft_strdel(&new_op);
+	return (1);
+}
+
+int			ft_optryn(t_list **s_a, t_list **s_b, char *name, int n)
+{
+	int		i;
+	t_op	*op;
+
+	i = 0;
+	while (i < n)
+	{
+		if (!(op = ft_opget(name)))
+			return (-1);
+		ft_opapply(op, s_a, s_b);
+		i += 1;
+	}
 	return (1);
 }

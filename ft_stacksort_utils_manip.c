@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 15:36:21 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 15:16:07 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/28 17:50:53 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,6 @@ static t_list	*ft_rorrr(t_list **s, t_list **ops, char *str, int min)
 		if (!ft_opadd(ops, str))
 			return (NULL);
 		f(s);
-	}
-	return (*ops);
-}
-
-t_list			*ft_pushn(t_list **s_from, t_list **s_to, t_list **ops, int n)
-{
-	int		i;
-
-	i = 0;
-	while (i < n)
-	{
-		ft_push(s_from, s_to);
-		if (!ft_opadd(ops, "pa"))
-			return (NULL);
-		i += 1;
 	}
 	return (*ops);
 }

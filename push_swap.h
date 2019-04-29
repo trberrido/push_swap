@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 15:13:40 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/29 12:43:36 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,11 @@ t_list			*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops);
 void			ft_opwrite(t_list *ops);
 
 t_list			*ft_opadd(t_list **ops, char *name);
+t_list			*ft_opaddn(t_list **ops, char *name, int n);
 
 t_op			*ft_opget(char *new_op);
 int				ft_optry(t_list **stack_a, t_list **stack_b);
+int				ft_optryn(t_list **s_a, t_list **s_b, char *name, int n);
 void			ft_opapply(t_op *op, t_list **stack_a, t_list **stack_b);
 
 void			ft_push(t_list **stack_from, t_list **stack_to);
@@ -73,10 +75,10 @@ void			ft_rotate(t_list **stack);
 void			ft_reverse(t_list **stack);
 
 t_list			*ft_selection(t_list **stack_a, t_list **stack_b, t_list **ops);
+t_list			*ft_needaswap(t_list **stack_a, t_list **ops);
 t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops);
 t_list			*ft_quicksort(t_list **stack_a, t_list **stack_b, t_list **ops);
 
-t_list			*ft_pushn(t_list **s_from, t_list **s_to, t_list **ops, int n);
 t_list			*ft_minimumontop(t_list **stack_a, t_list **ops);
 
 int				ft_isshifted(t_list *stack);

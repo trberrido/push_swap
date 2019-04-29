@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 20:07:25 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 14:32:30 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/29 12:57:33 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int				ft_getmedian(t_list *stack, int len)
 
 	i = 0;
 	prev_min = FT_INTMIN;
-	while (i < (len + 1) / 2)
+	if (len % 2)
+		len += 1;
+	while (i < len / 2)
 	{
-		ft_putendl("-");
 		current_lst = stack;
 		min = FT_INTMAX;
 		while (current_lst)
@@ -40,42 +41,73 @@ int				ft_getmedian(t_list *stack, int len)
 	return (min);
 }
 
-static t_list	*ft_sliceit(t_list **s_a, t_list **s_b, t_list **ops, int len)
+static int		ft_separate(t_list **s_a, t_list **s_b, t_list **ops, int len)
 {
-	int		median;
 	int		i;
+	int		pushed;
+	int		median;
 
-	median = ft_getmedian(*s_a, ft_lstlen(*s_a));
 	i = 0;
+	pushed = 0;
+	median = ft_getmedian(*s_a, len);
 	while (i < len)
 	{
 		if (((t_plate *)(*s_a)->content)->value < median)
 		{
+			pushed += 1;
 			ft_push(s_a, s_b);
 			if (!ft_opadd(ops, "pb"))
-				return (NULL);
+				return (-1);
 		}
 		else
 		{
 			ft_rotate(s_a);
 			if (!ft_opadd(ops, "ra"))
-				return (NULL);
+				return (-1);
 		}
 		i += 1;
 	}
-	return (*ops);
+	return (pushed);
+}
+
+/*
+**	SLICE N
+**		IF N < 3
+**			RETURN FN swap
+**		ELSE
+**			FN separate
+**			FN slice remaining
+**			RETURN FN rewind pushed 	___	rewind will push back
+**											before recalling slice
+*/
+
+static t_list	*ft_slice(t_list **s_a, t_list **s_b, t_list **ops, int len)
+{
+	int		remaining;
+	int		pushed;
+
+	if (len >= 3)
+	{
+		if ((pushed = ft_separate(s_a, s_b, ops, len)) < 0)
+			return (NULL);
+		remaining = len - pushed;
+		if (remaining < ft_lstlen(*s_a))
+		{
+			ft_optryn(s_a, s_b, "rra", remaining);
+			if (!ft_opaddn(ops, "rra", remaining))
+				return (NULL);
+		}
+		if (!ft_slice(s_a, s_b, ops, remaining))
+			return (NULL);
+		ft_optryn(s_a, s_b, "pa", pushed);
+		if (!ft_opaddn(ops, "pa", pushed))
+			return (NULL);
+		return (ft_slice(s_a, s_b, ops, pushed));
+	}
+	return (ft_needaswap(s_a, ops));
 }
 
 t_list			*ft_quicksort(t_list **stack_a, t_list **stack_b, t_list **ops)
 {
-	int		len;
-
-	len = ft_lstlen(*stack_a);
-	while (len > 3)
-	{
-		if (!ft_sliceit(stack_a, stack_b, ops, len))
-			return (NULL);
-		len = ft_lstlen(*stack_a);
-	}
-	return (*ops);
+	return (ft_slice(stack_a, stack_b, ops, ft_lstlen(*stack_a)));
 }

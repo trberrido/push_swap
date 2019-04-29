@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 21:35:54 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/26 15:02:05 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/29 13:32:57 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,25 @@ static int		ft_remove_push(t_list **all_ops, t_list **op)
 	next = (t_op *)((*op)->next)->content;
 	if ((!ft_strcmp(current->name, "pa") && !ft_strcmp(next->name, "pb"))
 		|| (!ft_strcmp(current->name, "pb") && !ft_strcmp(next->name, "pa")))
+	{
+		ft_lstremove(all_ops, (*op)->next, &ft_memerase);
+		ft_lstremove(all_ops, *op, &ft_memerase);
+		return (1);
+	}
+	return (0);
+}
+
+static int		ft_remove_rotandrev(t_list **all_ops, t_list **op)
+{
+	t_op	*current;
+	t_op	*next;
+
+	current = (t_op *)(*op)->content;
+	next = (t_op *)((*op)->next)->content;
+	if ((!ft_strcmp(current->name, "ra") && !ft_strcmp(next->name, "rra"))
+		|| (!ft_strcmp(current->name, "rra") && !ft_strcmp(next->name, "ra"))
+		|| (!ft_strcmp(current->name, "rb") && !ft_strcmp(next->name, "rrb"))
+		|| (!ft_strcmp(current->name, "rrb") && !ft_strcmp(next->name, "rb")))
 	{
 		ft_lstremove(all_ops, (*op)->next, &ft_memerase);
 		ft_lstremove(all_ops, *op, &ft_memerase);
@@ -66,6 +85,8 @@ void			ft_stacksort_post(t_list **ops)
 	while (current && current->next)
 	{
 		if (ft_remove_push(ops, &current))
+			current = *ops;
+		else if (ft_remove_rotandrev(ops, &current))
 			current = *ops;
 		else
 			current = current->next;

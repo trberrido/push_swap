@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 14:32:17 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 14:45:57 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/29 13:03:47 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void			ft_stackprint(t_list *stack, char name)
 {
+	ft_putstr("STACK ");
 	ft_putchar(name);
-	ft_putendl(":");
+	ft_putendl("");
 	if (!stack)
 		ft_putendl("empty stack");
 	while (stack)

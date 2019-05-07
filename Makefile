@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/28 14:58:01 by thberrid         ###   ########.fr        #
+#    Updated: 2019/05/07 14:59:12 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ PUSH_SWAP_C = push_swap.c \
 			  ft_stacksort.c \
 			  ft_stacksort_selection.c \
 			  ft_stacksort_bubble.c \
+			  ft_stacksort_insertion.c \
 			  ft_stacksort_quicksort.c \
 			  ft_stacksort_post.c \
 			  ft_stacksort_utils_manip.c
@@ -43,8 +44,8 @@ COMMON_O = $(addprefix $(DIR_O), $(patsubst %.c, %.o, $(COMMON_C)))
 FILES_H = push_swap.h
 FLAGS = -Wall -Wextra -Werror
 
-.PHONY : clean fclean re all $(NAME) test norme libft test
-.SILENT : clean fclean re all $(NAME) libft push_swap checker test
+.PHONY : clean fclean re all $(NAME) test norme libft test debug
+.SILENT : clean fclean re all $(NAME) libft push_swap checker test debug
 
 all : $(NAME)
 
@@ -57,6 +58,13 @@ push_swap : libft $(PUSH_SWAP_O) $(COMMON_O)
 checker : libft $(CHECKER_O) $(COMMON_O)
 	gcc -I . $(FLAGS) $(COMMON_O) $(CHECKER_O) -L ./libft/ -lft -o checker
 	$(info CHECKER exec compiled)
+
+debug : libft
+	gcc -I . -I ./libft/includes/ -ggdb $(FLAGS) $(COMMON_C) $(PUSH_SWAP_C) -L ./libft/ -lft -o push_swap
+	$(info PUSH_SWAP exec compiled)
+	$(info ARG=`ruby -e "puts (1 ... 100).to_a.shuffle.join(' ')"`; lldb push_swap $ARG)
+	$(info b ft_slice)
+	$(info run, next, step)
 
 test: libft $(TEST_O) $(COMMON_O)
 	gcc -I . $(FLAGS) $(COMMON_O) $(TEST_O) -L ./libft/ -lft -o test

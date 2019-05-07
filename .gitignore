@@ -5,8 +5,7 @@ checker
 push_swap
 *.dSYM
 *~
-*.swp
-*.swo
-*.swn
+*.py
+*.sw*
 *.test
 test

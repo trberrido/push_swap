@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/28 14:31:31 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 14:52:00 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/30 21:31:32 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		main(int ac, char **av)
 	if (!ft_stackfill(ac, av, &stack))
 		return (0);
 	ft_stackprint(stack, ':');
-	median = ft_getmedian(stack, ft_lstlen(stack));
+	median = ft_getquartile(stack, ft_lstlen(stack));
 	ft_putnbr(median);
 	ft_putendl("");
 	return (0);

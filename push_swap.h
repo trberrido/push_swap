@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 18:20:48 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/29 12:43:36 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/07 16:20:47 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_op
 
 typedef struct	s_algo
 {
-	t_list	*(*fn)(t_list **, t_list **, t_list **);
+	t_list	*(*fn)(t_list **, t_list **, t_list **, int);
 	int		limit;
 }				t_algo;
 
@@ -64,6 +64,8 @@ void			ft_opwrite(t_list *ops);
 t_list			*ft_opadd(t_list **ops, char *name);
 t_list			*ft_opaddn(t_list **ops, char *name, int n);
 
+int				ft_findnextmax(t_list *stack);
+
 t_op			*ft_opget(char *new_op);
 int				ft_optry(t_list **stack_a, t_list **stack_b);
 int				ft_optryn(t_list **s_a, t_list **s_b, char *name, int n);
@@ -74,17 +76,33 @@ void			ft_swap(t_list **stack);
 void			ft_rotate(t_list **stack);
 void			ft_reverse(t_list **stack);
 
-t_list			*ft_selection(t_list **stack_a, t_list **stack_b, t_list **ops);
-t_list			*ft_needaswap(t_list **stack_a, t_list **ops);
-t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops);
-t_list			*ft_quicksort(t_list **stack_a, t_list **stack_b, t_list **ops);
+t_list			*ft_selection(t_list **stack_a, t_list **stack_b, t_list **ops, int len);
+t_list			*ft_selection_b(t_list **stack_a, t_list **stack_b, t_list **ops, int len);
+
+int				ft_needaswap(t_list **stack_a, t_list **ops, int len);
+t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops, int len);
+
+t_list			*ft_rorrr(t_list **s, t_list **ops, char *str, int min);
+
+t_list			*ft_slice_b(t_list **s_a, t_list **s_b, t_list **ops, int len);
+t_list			*ft_slice(t_list **s_a, t_list **s_b, t_list **ops, int len);
+t_list			*ft_quicksort(t_list **stack_a, t_list **stack_b, t_list **ops, int len);
+
+t_list			*ft_insertion(t_list **stack_a, t_list **stack_b, t_list **ops, int len);
+
+int			ft_stackissorted(t_list *stack);
+int			ft_isasc(t_list *stack);
 
 t_list			*ft_minimumontop(t_list **stack_a, t_list **ops);
+t_list			*ft_maximumontop(t_list **stack, t_list **ops);
 
+t_list			*ft_lstgetn(t_list *stack, int n);
 int				ft_isshifted(t_list *stack);
 int				ft_findminimum(t_list *stack);
+int				ft_findmaximum(t_list *stack);
 int				ft_findposition(t_list *stack, int searched_value);
 int				ft_countbreaks(t_list *stack);
 int				ft_getmedian(t_list *stack, int len);
+int				ft_getquartile(t_list *stack, int len);
 
 #endif

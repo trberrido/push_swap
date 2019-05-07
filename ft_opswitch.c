@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/12 17:27:25 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/29 13:05:11 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/04/30 18:23:22 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ int			ft_optry(t_list **stack_a, t_list **stack_b)
 			return (0);
 		}
 		ft_opapply(op, stack_a, stack_b);
-		ft_putendl(new_op);
-		ft_stackprint(*stack_a, 'A');
-		ft_stackprint(*stack_b, 'B');
-		ft_putendl("\n\n\n");
+//		ft_putendl(new_op);
+//		ft_stackprint(*stack_a, 'A');
+//		ft_stackprint(*stack_b, 'B');
+//		ft_putendl("\n\n\n");
 		ft_strdel(&new_op);
 	}
 	ft_strdel(&new_op);

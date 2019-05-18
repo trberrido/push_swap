@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   median_test.c                                      :+:      :+:    :+:   */
+/*   sort_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/28 14:31:31 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/30 21:31:32 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/16 18:27:47 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/16 18:28:24 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		main(int ac, char **av)
+int		sort_check(t_list *stack_a, t_list *stack_b)
 {
-	t_list	*stack;
-	int		median;
-
-	if (!ft_stackfill(ac, av, &stack))
-		return (0);
-	ft_stackprint(stack, ':');
-	median = ft_getquartile(stack, ft_lstlen(stack));
-	ft_putnbr(median);
-	ft_putendl("");
+	if (!count_breaks(stack_a) && !stack_b)
+		return (1);
 	return (0);
 }

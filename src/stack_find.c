@@ -1,24 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacksort_utils_find.c                          :+:      :+:    :+:   */
+/*   stack_find.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/19 15:38:51 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/04 21:10:42 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/16 18:45:18 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/18 21:17:15 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		ft_isshifted(t_list *stack)
+static int	find_minlen(t_list *stack, int len, int previous_min)
+{
+	int		i;
+	int		min;
+	int		current_value;
+
+	i = 0;
+	min = FT_INTMAX;
+	while (i < len)
+	{
+		current_value = ((t_plate *)stack->content)->value;
+		if (min > current_value && current_value > previous_min)
+			min = current_value;
+		stack = stack->next;
+		i += 1;
+	}
+	return (min);
+}
+
+int			find_median(t_list *stack, int len)
+{
+	int		min;
+	int		previous_min;
+	int		i;
+
+	min = -1;
+	previous_min = FT_INTMIN;
+	i = 0;
+	while (i < len / 2)
+	{
+		min = find_minlen(stack, len, previous_min);
+		previous_min = min;
+		i += 1;
+	}
+	return (min);
+}
+
+int			is_shifted(t_list *stack)
 {
 	int		first;
 	int		current;
 	int		breaks;
 
-	breaks = ft_countbreaks(stack);
+	breaks = count_breaks(stack);
 	first = ((t_plate *)stack->content)->value;
 	while (stack)
 	{
@@ -30,16 +67,14 @@ int		ft_isshifted(t_list *stack)
 	return (breaks);
 }
 
-int		ft_countbreaks(t_list *stack)
+int			count_breaks(t_list *stack)
 {
 	int		prev;
-	int		first;
 	int		curr;
 	int		breaks;
 
 	breaks = 0;
 	prev = ((t_plate *)stack->content)->value;
-	first = ((t_plate *)stack->content)->value;
 	while (stack)
 	{
 		curr = ((t_plate *)stack->content)->value;
@@ -51,50 +86,7 @@ int		ft_countbreaks(t_list *stack)
 	return (breaks);
 }
 
-t_list	*ft_lstgetn(t_list *stack, int n)
-{
-	int		i;
-
-	i = 0;
-	while (i < n)
-	{
-		i += 1;
-		stack = stack->next;
-		if (!stack)
-			return (NULL);
-	}
-	return (stack);
-}
-
-int		ft_findmaximum(t_list *stack)
-{
-	int		max;
-
-	max = FT_INTMIN;
-	while (stack)
-	{
-		if (max < ((t_plate *)stack->content)->value)
-			max = ((t_plate *)stack->content)->value;
-		stack = stack->next;
-	}
-	return (max);
-}
-
-int		ft_findminimum(t_list *stack)
-{
-	int		min;
-
-	min = FT_INTMAX;
-	while (stack)
-	{
-		if (min > ((t_plate *)stack->content)->value)
-			min = ((t_plate *)stack->content)->value;
-		stack = stack->next;
-	}
-	return (min);
-}
-
-int		ft_findposition(t_list *stack, int searched_value)
+int			find_position(t_list *stack, int searched_value)
 {
 	int		position;
 

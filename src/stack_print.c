@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacksort_check.c                               :+:      :+:    :+:   */
+/*   stack_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/23 14:51:34 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/24 16:19:11 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/16 19:00:00 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/17 15:27:01 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int		ft_stacksort_check(t_list *stack_a, t_list *stack_b)
+void			stack_print(t_list *stack, char name)
 {
-	if (!ft_countbreaks(stack_a) && !stack_b)
-		return (1);
-	return (0);
+	ft_putstr("STACK ");
+	ft_putchar(name);
+	ft_putendl("");
+	if (!stack)
+		ft_putendl("empty stack");
+	while (stack)
+	{
+		ft_putnbr(((t_plate *)stack->content)->value);
+		ft_putendl("");
+		stack = stack->next;
+	}
+	ft_putendl("");
 }

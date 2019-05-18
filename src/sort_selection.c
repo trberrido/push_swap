@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackdel.c                                      :+:      :+:    :+:   */
+/*   sort_selection.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/23 14:31:05 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/23 14:49:34 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/08 19:52:37 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/18 21:24:58 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void			ft_stacksdel(t_list **stack_a, t_list **stack_b, t_list **ops)
+t_list		*selection(t_list **s_a, t_list **s_b, t_list **ops, int len)
 {
-	if (stack_a && *stack_a)
-		ft_lstdel(stack_a, &ft_memerase);
-	if (stack_b && *stack_b)
-		ft_lstdel(stack_b, &ft_memerase);
-	if (ops && *ops)
-		ft_lstdel(ops, &ft_memerase);
+	int		pushed;
+
+	pushed = pushbn_desc(s_a, s_b, ops, len);
+	if (pushed == FT_ERROR)
+		return (NULL);
+	pushed = pushan_asc(s_a, s_b, ops, pushed);
+	if (pushed == FT_ERROR)
+		return (NULL);
+	return (*ops);
 }

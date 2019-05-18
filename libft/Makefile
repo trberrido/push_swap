@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/04/24 15:57:58 by thberrid         ###   ########.fr        #
+#    Updated: 2019/05/16 20:54:23 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ FILES_C = get_next_line.c \
 		  ft_itoa.c \
 		  ft_lstadd.c \
 		  ft_lstgetlast.c \
+		  ft_lstgetn.c \
 		  ft_lstappend.c \
 		  ft_lstlen.c \
 		  ft_lstpush.c \
@@ -89,7 +90,7 @@ FILES_C = get_next_line.c \
 		  ft_tolower.c \
 		  ft_toupper.c
 DIR_O = obj/
-DIR_H = includes/
+DIR_H = include/
 FILES_O = $(addprefix $(DIR_O), $(patsubst %.c, %.o, $(FILES_C)))
 FILES_H = $(addprefix $(DIR_H), get_next_line.h libft.h)
 FLAGS = -Wall -Wextra -Werror
@@ -105,6 +106,7 @@ $(NAME) : $(FILES_O)
 	$(info  LIBFT compilation over)
 
 $(DIR_O)%.o : %.c $(FILES_H)
+	mkdir -p $(DIR_O)
 	$(info LIBFT $<)
 	gcc -I ./$(DIR_H) $(FLAGS) -c -o $@ $<
 

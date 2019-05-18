@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstpop.c                                        :+:      :+:    :+:   */
+/*   op_write.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/12 16:04:08 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/09 16:41:17 by thberrid         ###   ########.fr       */
+/*   Created: 2019/04/24 14:17:56 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/16 18:14:47 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include <push_swap.h>
 
-t_list		*ft_lstpop(t_list **alst)
+void		op_write(t_list *stack_ops)
 {
-	t_list		*popped;
-
-	if (*alst)
-	{
-		popped = *alst;
-		*alst = popped->next;
-		popped->next = NULL;
-		return (popped);
-	}
-	return (NULL);
+	ft_putendl(((t_op *)(stack_ops->content))->name);
 }

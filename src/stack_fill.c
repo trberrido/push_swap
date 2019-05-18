@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackfill.c                                     :+:      :+:    :+:   */
+/*   stack_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/11 14:55:28 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/24 14:11:03 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/16 18:53:21 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/16 18:59:25 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int		ft_checktwins(t_list *stack, int value)
+static int		check_twins(t_list *stack, int value)
 {
 	t_list	*current;
 	t_plate *plate;
@@ -30,7 +30,7 @@ static int		ft_checktwins(t_list *stack, int value)
 	return (1);
 }
 
-static t_list	*ft_addplate(t_list **stack, t_plate *newplate)
+static t_list	*add_plate(t_list **stack, t_plate *newplate)
 {
 	t_list		*newlist;
 
@@ -41,7 +41,7 @@ static t_list	*ft_addplate(t_list **stack, t_plate *newplate)
 	return (newlist);
 }
 
-t_list			*ft_stackfill(int ac, char **av, t_list **stack)
+t_list			*stack_fill(int ac, char **av, t_list **stack)
 {
 	int		i;
 	int		j;
@@ -54,14 +54,14 @@ t_list			*ft_stackfill(int ac, char **av, t_list **stack)
 		while (av[i][j])
 		{
 			newplate.value = ft_atoi(&av[i][j]);
-			if (!ft_addplate(stack, &newplate))
+			if (!add_plate(stack, &newplate))
 				return (NULL);
-			if (!ft_checktwins(*stack, newplate.value))
+			if (!check_twins(*stack, newplate.value))
 			{
 				ft_lstdel(stack, &ft_memerase);
 				return (NULL);
 			}
-			j += ft_goto_nextnb(&av[i][j]);
+			j += goto_nextnb(&av[i][j]);
 		}
 		i += 1;
 	}

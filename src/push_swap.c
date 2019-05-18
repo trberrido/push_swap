@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:28:10 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/04 14:21:10 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/18 20:06:29 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ int		main(int ac, char **av)
 	stack_ops = NULL;
 	if (ac < 2)
 		return (0);
-	if (!ft_argscheck(ac, av))
+	if (!args_check(ac, av))
 		ft_putendl_fd("Error", 2);
-	else if (!ft_stackfill(ac, av, &stack_a))
+	else if (!stack_fill(ac, av, &stack_a))
 		ft_putendl_fd("Error", 2);
-	else if (!ft_stacksort_check(stack_a, stack_b))
+	else if (!sort_check(stack_a, stack_b))
 	{
-		if (!ft_stacksort(&stack_a, &stack_b, &stack_ops))
+		if (!sort_switch(&stack_a, &stack_b, &stack_ops))
 			ft_putendl_fd("Error", 2);
 		else
-			ft_lstiter(stack_ops, ft_opwrite);
+			ft_lstiter(stack_ops, op_write);
 	}
-	ft_stacksdel(&stack_a, &stack_b, &stack_ops);
+	stacks_del(&stack_a, &stack_b, &stack_ops);
 	return (0);
 }

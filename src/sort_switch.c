@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacksort.c                                     :+:      :+:    :+:   */
+/*   sort_switch.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/16 18:19:05 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/07 16:51:18 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/16 19:43:31 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/18 17:06:33 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-t_list		*ft_stacksort(t_list **stack_a, t_list **stack_b, t_list **ops)
+t_list		*sort_switch(t_list **stack_a, t_list **stack_b, t_list **ops)
 {
 	int				i;
+	int				minimum;
 	int				stack_len;
-	static t_algo	algos[4] = {
-		{ft_bubble, 3},
-		{ft_selection, 15},
-		{ft_quicksort, 1000},
+	static t_algo	algos[3] = {
+		{bubble, 3},
+		{selection, 15},
+		{quicksort, 1000},
 	};
 
-	if (ft_isshifted(*stack_a) == 1)
+	if (is_shifted(*stack_a) == 1)
 	{
-		if (!ft_minimumontop(stack_a, ops))
+		minimum = findn_min(*stack_a, 1);
+		if (!pullup(stack_a, ops, minimum, 'a'))
 			return (NULL);
 	}
 	else
 	{
 		i = 0;
 		stack_len = ft_lstlen(*stack_a);
-		while (stack_len > algos[i].limit && i + 1 < 4)
+		while (stack_len > algos[i].limit && i + 1 < 3)
 			i += 1;
 		algos[i].fn(stack_a, stack_b, ops, ft_lstlen(*stack_a));
-		ft_stacksort_post(ops);
+		sort_post(ops);
 	}
 	return (*ops);
 }

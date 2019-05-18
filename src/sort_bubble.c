@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacksort_bubble.c                              :+:      :+:    :+:   */
+/*   sort_bubble.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/18 13:28:24 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/04 14:26:40 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/16 18:20:33 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/18 19:11:30 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int			ft_needaswap(t_list **stack_a, t_list **ops, int len)
+static int	need_swap(t_list **stack_a, t_list **ops, int len)
 {
 	int		current;
 	int		next;
@@ -23,33 +23,30 @@ int			ft_needaswap(t_list **stack_a, t_list **ops, int len)
 		next = ((t_plate *)(*stack_a)->next->content)->value;
 		if (current > next)
 		{
-			ft_swap(stack_a);
-			if (!ft_opadd(ops, "sa"))
-				return (-1);
+			swap(stack_a, NULL);
+			if (!op_add(ops, "sa"))
+				return (FT_ERROR);
+			return (1);
 		}
 	}
-	return (1);
+	return (0);
 }
 
-t_list			*ft_bubble(t_list **stack_a, t_list **stack_b, t_list **ops, int len)
+t_list		*bubble(t_list **s_a, t_list **s_b, t_list **ops, int len)
 {
-	if (!ft_needaswap(stack_a, ops, len))
-	{
-
-			ft_putendl("lol");
+	if (need_swap(s_a, ops, ft_lstlen(*s_a)) == FT_ERROR)
 		return (NULL);
-	}
-	if (ft_isshifted(*stack_a) == 1)
+	if (is_shifted(*s_a) == 1)
 	{
-		if (!ft_minimumontop(stack_a, ops))
+		if (!pullup(s_a, ops, findn_min(*s_a, 1), 'a'))
 			return (NULL);
 	}
-	if (!ft_stacksort_check(*stack_a, *stack_b))
+	if (!sort_check(*s_a, *s_b))
 	{
-		ft_rotate(stack_a);
-		if (!ft_opadd(ops, "ra"))
+		rotate(s_a, s_b);
+		if (!op_add(ops, "ra"))
 			return (NULL);
-		return (ft_bubble(stack_a, stack_b, ops, len));
+		return (bubble(s_a, s_b, ops, len));
 	}
 	return (*ops);
 }

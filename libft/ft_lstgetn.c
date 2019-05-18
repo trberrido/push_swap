@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_opadd.c                                         :+:      :+:    :+:   */
+/*   ft_lstgetn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/24 14:19:12 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/28 17:47:48 by thberrid         ###   ########.fr       */
+/*   Created: 2019/05/16 18:23:12 by thberrid          #+#    #+#             */
+/*   Updated: 2019/05/16 18:23:35 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include <libft.h>
 
-t_list		*ft_opaddn(t_list **ops, char *name, int n)
+t_list	*ft_lstgetn(t_list *list, int n)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (i < n)
 	{
-		if (!ft_opadd(ops, name))
-			return (NULL);
 		i += 1;
+		list = list->next;
+		if (!list)
+			return (NULL);
 	}
-	return (*ops);
-}
-
-t_list		*ft_opadd(t_list **ops, char *name)
-{
-	t_op	newop;
-
-	ft_strcpy(newop.name, name);
-	ft_lstappend(ops, ft_lstnew(&newop, sizeof(t_op)));
-	return (ft_lstgetlast(*ops));
+	return (list);
 }

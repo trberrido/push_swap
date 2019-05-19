@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 20:36:26 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/16 17:41:02 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/19 17:37:23 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int				main(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	ops = NULL;
-	if (ac < 2 || !args_check(ac, av))
+	if (ac == 1)
+		return (0);
+	else if (!args_check(ac, av))
 		ft_putendl_fd("Error", 2);
 	else if (!stack_fill(ac, av, &stack_a))
 		ft_putendl_fd("Error", 2);

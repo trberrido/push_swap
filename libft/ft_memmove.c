@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:03:26 by thberrid          #+#    #+#             */
-/*   Updated: 2018/11/20 21:40:55 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/25 13:50:32 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ static void	ft_bytsmove(void *dst, const void *src, size_t len, int sign)
 
 void		*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-
-	i = 0;
 	if (dst > src)
 	{
 		dst += (len - 1);

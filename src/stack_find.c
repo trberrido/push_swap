@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 18:45:18 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/18 21:17:15 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/25 16:08:06 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ int			count_breaks(t_list *stack)
 	int		breaks;
 
 	breaks = 0;
-	prev = ((t_plate *)stack->content)->value;
+	if (stack)
+		prev = ((t_plate *)stack->content)->value;
 	while (stack)
 	{
 		curr = ((t_plate *)stack->content)->value;

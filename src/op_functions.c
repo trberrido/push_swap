@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/16 17:44:16 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/16 20:25:00 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/25 16:13:16 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,15 @@ void	push(t_list **dst, t_list **src)
 
 void	swap(t_list **stack, t_list **stack_useless)
 {
+	t_plate *tmp;
+
 	FT_UNUSED(stack_useless);
 	if (*stack && (*stack)->next)
-		ft_addrswap((*stack)->content, (*stack)->next->content);
+	{
+		tmp = (*stack)->content;
+		(*stack)->content = (*stack)->next->content;
+		(*stack)->next->content = tmp;
+	}
 }
 
 void	reverse(t_list **stack, t_list **stack_useless)

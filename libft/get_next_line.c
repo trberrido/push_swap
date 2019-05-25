@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/10 14:59:54 by thberrid          #+#    #+#             */
-/*   Updated: 2019/05/25 16:03:32 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/25 17:06:54 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ int			get_next_line(const int fd, char **line)
 		return (ft_bufffree(fd, &list, GNL_ERROR));
 	if (*line)
 		ft_strdel(line);
-	if (!(*line = ft_strnew(0)))
+	if (!(*line = ft_strnew(BUFF_SIZE)))
 		return (ft_bufffree(fd, &list, GNL_ERROR));
 	if (!ft_buffget(fd, &list, &buff))
 		return (ft_bufffree(fd, &list, GNL_ERROR));

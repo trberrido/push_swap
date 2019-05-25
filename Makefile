@@ -6,7 +6,7 @@
 #    By: thberrid <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/17 17:15:46 by thberrid          #+#    #+#              #
-#    Updated: 2019/05/25 15:20:25 by thberrid         ###   ########.fr        #
+#    Updated: 2019/05/25 18:57:15 by thberrid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ TEST_C = $(addprefix $(DIR_C)/, $(TEST_C_NAME))
 
 FILES_H = $(addprefix $(DIR_H)/, $(FILES_H_NAME))
 
-FLAGS = -Wall -Wextra -Werror -g3
+FLAGS = -Wall -Wextra -Werror
 
 .PHONY : clean fclean re all $(NAME) test norme libft test debug
 .SILENT : clean fclean re all $(NAME) libft push_swap checker test debug

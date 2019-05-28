@@ -1,5 +1,4 @@
 # push_swap
-
 sorting stack
 
 command line to test it

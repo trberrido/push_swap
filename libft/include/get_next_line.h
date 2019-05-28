@@ -6,7 +6,7 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 09:56:51 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/16 14:26:16 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/25 18:43:05 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <libft.h>
 
-# define BUFF_SIZE 10
+# define BUFF_SIZE 1
 
 # define GNL_ERROR -1
 # define GNL_EOF 0

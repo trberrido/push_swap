@@ -6,17 +6,15 @@
 /*   By: thberrid <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 16:08:31 by thberrid          #+#    #+#             */
-/*   Updated: 2019/04/14 16:09:57 by thberrid         ###   ########.fr       */
+/*   Updated: 2019/05/25 15:28:49 by thberrid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-
-void	ft_addrswap(void **addra, void **addrb)
+void	ft_addrswap(int **addra, int **addrb)
 {
-	void	*tmp;
+	int		*tmp;
 
-	tmp = *addra;
-	*addra = *addrb;
-	*addrb = tmp;
+	tmp = (void *)*addra;
+	*addra = (void *)*addrb;
+	*addrb = (void *)tmp;
 }

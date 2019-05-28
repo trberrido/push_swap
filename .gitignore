@@ -9,3 +9,4 @@ push_swap
 *.sw*
 *.test
 test
+node_modules/*
